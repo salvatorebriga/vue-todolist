@@ -33,10 +33,21 @@
         </div>
         <div class="content">
           <ul class="list">
-            <li v-for="(item, index) in toDo" :key="index">
+            <li
+              v-for="(item, index) in toDo"
+              :key="index"
+              @mouseenter="showIndex = index"
+              @mouseleave="showIndex = null"
+            >
               <input type="checkbox" v-model="item.done" />
-              <p :class="{ done: item.done }">{{item.text}}</p>
-              <i class="fas fa-xmark" @click="removeItem(index)"></i>
+              <p :class="{ done: item.done }" @click="toggleDone(index)">
+                {{item.text}}
+              </p>
+              <i
+                v-if="showIndex === index"
+                class="fas fa-xmark"
+                @click="removeItem(index)"
+              ></i>
             </li>
           </ul>
         </div>

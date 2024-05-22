@@ -27,23 +27,28 @@ body {
 
 .container {
   width: 700px;
-  min-height: 500px;
+  height: 80vh;
   background-color: #0d0d0d;
   border-radius: 10px;
   padding: 10px;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .title {
   padding: 10px;
 }
 
-.title > h1 {
+.content {
+  height: 100%;
+  padding: 10px 30px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-.content {
-  padding: 10px 30px;
-  overflow-y: scroll;
-  overflow-y: hidden;
+/*per nascondere la scrollbar*/
+.content::-webkit-scrollbar {
+  display: none;
 }
 
 .list {
@@ -55,6 +60,14 @@ body {
   align-items: center;
   gap: 20px;
   margin-bottom: 30px;
+}
+
+.list > li > p {
+  word-break: break-word;
+}
+
+.list > li > p:hover {
+  cursor: pointer;
 }
 
 .input-box {

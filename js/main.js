@@ -14,6 +14,7 @@ createApp({
           done: false,
         },
       ],
+      showIndex: false,
     };
   },
   methods: {
@@ -25,7 +26,13 @@ createApp({
     },
 
     removeItem(index) {
-      this.toDo.splice(index, 1);
+      if (index === this.showIndex) {
+        this.toDo.splice(index, 1);
+      }
+    },
+
+    toggleDone(index) {
+      this.toDo[index].done = !this.toDo[index].done;
     },
   },
 }).mount("#app");
