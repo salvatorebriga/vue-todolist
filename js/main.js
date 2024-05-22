@@ -3,17 +3,25 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
+      newTodoText: "",
       toDo: [
         {
-          text: "Learn Vue.js",
+          text: "Preset: Learn Vue.js",
           done: false,
         },
         {
-          text: "Build a to-do list",
+          text: "Preset: Build a to-do list",
           done: false,
         },
       ],
     };
   },
-  methods: {},
+  methods: {
+    addItem() {
+      if (this.newTodoText.trim() !== "") {
+        this.toDo.push({ text: this.newTodoText, done: false });
+        this.newTodoText = "";
+      }
+    },
+  },
 }).mount("#app");

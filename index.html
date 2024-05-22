@@ -27,8 +27,9 @@
             v-model="newTodoText"
             type="text"
             placeholder="Type a task here"
+            @keyup.enter="addItem"
           />
-          <button>Add Task</button>
+          <button @click="addItem">Add Task</button>
         </div>
         <div class="content">
           <ul class="list">
